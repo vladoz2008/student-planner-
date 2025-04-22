@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задачи - Ежедневник</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js" class="particles"></div>
+    <div class="container fade-in">
+        <h1>Задачи</h1>
+        <a href="index.html"><button class="oval-btn" title="Вернуться на главную">Назад</button></a>
+        <input type="text" id="taskInput" placeholder="Добавить задачу">
+        <input type="date" id="taskDeadline">
+        <input type="datetime-local" id="taskReminder" placeholder="Напоминание">
+        <select id="taskCategory">
+            <option value="study">Учёба</option>
+            <option value="project">Проект</option>
+            <option value="personal">Личное</option>
+        </select>
+        <input type="color" id="categoryColor" value="#42a5f5">
+        <select id="taskPriority">
+            <option value="low">Низкий</option>
+            <option value="medium">Средний</option>
+            <option value="high">Высокий</option>
+        </select>
+        <button class="oval-btn" title="Добавить новую задачу" onclick="addTask()">+</button>
+        <div class="filters">
+            <button class="oval-btn" onclick="filterTasks('all')">Все</button>
+            <button class="oval-btn" onclick="filterTasks('study')">Учёба</button>
+            <button class="oval-btn" onclick="filterTasks('project')">Проект</button>
+            <button class="oval-btn" onclick="filterTasks('personal')">Личное</button>
+        </div>
+        <div class="progress-container">Прогресс: <div id="progress-bar"><div id="progress"></div></div></div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <div id="taskEditModal" class="modal">
+        <div class="modal-content fade-in">
+            <span class="close" onclick="closeModal('taskEditModal')">×</span>
+            <h2 id="taskModalTitle"></h2>
+            <textarea id="taskNotes" placeholder="Заметки"></textarea>
+            <input type="text" id="subtaskInput" placeholder="Добавить подзадачу">
+            <button class="oval-btn" onclick="addSubtask()">+</button>
+            <ul id="subtaskList"></ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

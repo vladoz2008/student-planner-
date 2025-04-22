@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Предметы - Ежедневник</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js" class="particles"></div>
+    <div class="container fade-in">
+        <h1>Предметы</h1>
+        <a href="index.html"><button class="oval-btn" title="Вернуться на главную">Назад</button></a>
+        <input type="text" id="subjectInput" placeholder="Добавить предмет">
+        <input type="number" id="subjectGoal" placeholder="Цель (часы)">
+        <select id="subjectCategory">
+            <option value="study">Учёба</option>
+            <option value="project">Проект</option>
+            <option value="personal">Личное</option>
+        </select>
+        <input type="color" id="categoryColor" value="#42a5f5">
+        <button class="oval-btn" title="Добавить новый предмет" onclick="addSubject()">+</button>
+        <div class="filters">
+            <button class="oval-btn" onclick="filterSubjects('all')">Все</button>
+            <button class="oval-btn" onclick="filterSubjects('study')">Учёба</button>
+            <button class="oval-btn" onclick="filterSubjects('project')">Проект</button>
+            <button class="oval-btn" onclick="filterSubjects('personal')">Личное</button>
+        </div>
+        <ul id="subjectList"></ul>
+    </div>
+
+    <div id="timerModal" class="modal">
+        <div class="modal-content fade-in">
+            <span class="close" onclick="closeModal('timerModal')">×</span>
+            <h2 id="timerSubject"></h2>
+            <div>Текущее время: <span id="timerDisplay">0 ч 0 мин 0 сек</span></div>
+            <div>Цель: <span id="goalDisplay">0 ч</span> <div id="goalProgress" class="progress-bar"><div id="goalFill"></div></div></div>
+            <button id="timerToggle" class="oval-btn" onclick="toggleTimer()">▶</button>
+            <button class="oval-btn" onclick="pauseTimer()">⏸</button>
+            <button class="oval-btn" onclick="resetTimer()">↺</button>
+            <input type="text" id="manualTime" placeholder="ч мин сек (пример: 1 30 0)">
+            <button class="oval-btn" onclick="setManualTime()">Установить</button>
+            <textarea id="subjectNotes" placeholder="Заметки"></textarea>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

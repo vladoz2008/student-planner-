@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ежедневник студента</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js" class="particles"></div>
+    <div class="container fade-in">
+        <h1>Ежедневник студента</h1>
+        <button id="themeToggle" class="oval-btn" onclick="toggleTheme()">Переключить тему</button>
+        <div id="quote" class="quote"></div>
+        <div class="dashboard">
+            <a href="subjects.html"><button class="oval-btn" title="Управляй своими предметами">Предметы</button></a>
+            <a href="tasks.html"><button class="oval-btn" title="Список твоих задач">Задачи</button></a>
+            <a href="calendar.html"><button class="oval-btn" title="Посмотри дедлайны">Календарь</button></a>
+            <a href="stats.html"><button class="oval-btn" title="Твоя продуктивность">Статистика</button></a>
+            <button class="oval-btn" title="Твои награды" onclick="openAchievementsModal()">Достижения</button>
+        </div>
+        <div class="widgets">
+            <div id="dailyTime" class="widget">Сегодня: 0 ч</div>
+            <div id="nearestTask" class="widget">Ближайшая задача: -</div>
+        </div>
+        <div id="achievement" class="achievement fade-in"></div>
+    </div>
+
+    <div id="achievementsModal" class="modal">
+        <div class="modal-content fade-in">
+            <span class="close" onclick="closeModal('achievementsModal')">×</span>
+            <h2>Достижения</h2>
+            <ul id="achievementsList"></ul>
+        </div>
+    </div>
+
+    <audio id="timerSound" src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
